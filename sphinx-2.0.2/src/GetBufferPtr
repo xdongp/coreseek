@@ -1,0 +1,117 @@
+sphinx.cpp:	virtual bool					SetCaseFolding ( const char * sConfig, CSphString & sError )	{ return m_pTokenizer->SetCaseFolding ( sConfig, sError ); }
+sphinx.cpp:	virtual void					AddCaseFolding ( CSphRemapRange & tRange )						{ m_pTokenizer->AddCaseFolding ( tRange ); }
+sphinx.cpp:	virtual void					AddSpecials ( const char * sSpecials )							{ m_pTokenizer->AddSpecials ( sSpecials ); }
+sphinx.cpp:	virtual bool					SetIgnoreChars ( const char * sIgnored, CSphString & sError )	{ return m_pTokenizer->SetIgnoreChars ( sIgnored, sError ); }
+sphinx.cpp:	virtual bool					SetNgramChars ( const char * sConfig, CSphString & sError )		{ return m_pTokenizer->SetNgramChars ( sConfig, sError ); }
+sphinx.cpp:	virtual void					SetNgramLen ( int iLen )										{ m_pTokenizer->SetNgramLen ( iLen ); }
+sphinx.cpp:	virtual bool					LoadSynonyms ( const char * sFilename, CSphString & sError )	{ return m_pTokenizer->LoadSynonyms ( sFilename, sError ); }
+sphinx.cpp:	virtual bool					SetBoundary ( const char * sConfig, CSphString & sError )		{ return m_pTokenizer->SetBoundary ( sConfig, sError ); }
+sphinx.cpp:	virtual void					Setup ( const CSphTokenizerSettings & tSettings )				{ m_pTokenizer->Setup ( tSettings ); }
+sphinx.cpp:	virtual const CSphTokenizerSettings &	GetSettings () const									{ return m_pTokenizer->GetSettings (); }
+sphinx.cpp:	virtual const CSphSavedFile &	GetSynFileInfo () const											{ return m_pTokenizer->GetSynFileInfo (); }
+sphinx.cpp:	virtual bool					EnableSentenceIndexing ( CSphString & sError )					{ return m_pTokenizer->EnableSentenceIndexing ( sError ); }
+sphinx.cpp:	virtual bool					EnableZoneIndexing ( CSphString & sError )						{ return m_pTokenizer->EnableZoneIndexing ( sError ); }
+sphinx.cpp:	virtual int						GetCodepointLength ( int iCode ) const		{ return m_pTokenizer->GetCodepointLength ( iCode ); }
+sphinx.cpp:	virtual void					EnableQueryParserMode ( bool bEnable )		{ m_pTokenizer->EnableQueryParserMode ( bEnable ); }
+sphinx.cpp:	virtual bool					IsUtf8 () const				{ return m_pTokenizer->IsUtf8 (); }
+sphinx.cpp:	virtual const char *			GetBufferPtr () const		{ return m_pLastToken ? m_pLastToken->m_pBufferPtr : m_pTokenizer->GetBufferPtr(); }
+sphinx.cpp:	virtual const char *			GetBufferEnd () const		{ return m_pTokenizer->GetBufferEnd (); }
+sphinx.cpp:	pToken->m_bBoundary = m_pTokenizer->GetBoundary ();
+sphinx.cpp:	pToken->m_bSpecial = m_pTokenizer->WasTokenSpecial ();
+sphinx.cpp:	pToken->m_iOvershortCount = m_pTokenizer->GetOvershortCount ();
+sphinx.cpp:	pToken->m_iTokenLen = m_pTokenizer->GetLastTokenLen ();
+sphinx.cpp:	pToken->m_szTokenStart = m_pTokenizer->GetTokenStart ();
+sphinx.cpp:	pToken->m_szTokenEnd = m_pTokenizer->GetTokenEnd ();
+sphinx.cpp:	pToken->m_pBufferPtr = m_pTokenizer->GetBufferPtr ();
+sphinx.cpp:		: m_pTokenizer->GetToken ();
+sphinx.cpp:			bool bBlended = m_pTokenizer->TokenIsBlended();
+sphinx.cpp:		pToken = m_pTokenizer->GetToken ();
+sphinx.cpp:	ISphTokenizer * pClone = m_pTokenizer->Clone ( bEscaped );
+sphinx.cpp:	m_pTokenizer->SetBufferPtr ( sNewPtr );
+sphinx.cpp:	m_pTokenizer->SetBuffer ( sBuffer, iLength );
+sphinx.cpp:	m_pTokenizer->SetBuffer ( &dBuffer[0], dBuffer.GetLength() );
+sphinx.cpp:	while ( BYTE * sToken = m_pTokenizer->GetToken() )
+sphinx.cpp:			const CSphTokenizerSettings & tSettings = m_pTokenizer->GetSettings ();
+sphinx.cpp:		const CSphTokenizerSettings & tSettings = m_pTokenizer->GetSettings ();
+sphinx.cpp:		m_pTokenizer->SetBuffer ( (BYTE*)sBuf.cstr(), strlen ( sBuf.cstr() ) );
+sphinx.cpp:		sTok = m_pTokenizer->GetToken();
+sphinx.cpp:	CSphScopedPtr<ISphTokenizer> pTokenizer ( m_pTokenizer->Clone ( false ) ); // avoid race
+sphinx.cpp:	CSphScopedPtr<ISphTokenizer> pTokenizer ( m_pTokenizer->Clone ( false ) );
+sphinx.cpp:	ISphTokenizer * pTokenizer = m_pTokenizer->Clone ( false );
+sphinx.cpp:		&& ( sWord = m_pTokenizer->GetToken() )!=NULL )
+sphinx.cpp:			HITMAN::AddPos ( &m_tState.m_iHitPos, m_tState.m_iBuildLastStep + m_pTokenizer->GetOvershortCount()*m_iOvershortStep );
+sphinx.cpp:			if ( m_pTokenizer->GetBoundary() )
+sphinx.cpp:		int iLen = m_pTokenizer->GetLastTokenLen ();
+sphinx.cpp:				sInfixEnd += m_pTokenizer->GetCodepointLength ( *sInfixEnd );
+sphinx.cpp:				sInfixEnd += m_pTokenizer->GetCodepointLength ( *sInfixEnd );
+sphinx.cpp:			sInfix += m_pTokenizer->GetCodepointLength ( *sInfix );
+sphinx.cpp:		&& ( sWord = m_pTokenizer->GetToken() )!=NULL )
+sphinx.cpp:		if(m_pTokenizer->DumpToken()) {
+sphinx.cpp:			HITMAN::AddPos ( &m_tState.m_iHitPos, m_tState.m_iBuildLastStep + m_pTokenizer->GetOvershortCount()*m_iOvershortStep );
+sphinx.cpp:			if ( m_pTokenizer->GetBoundary() )
+sphinx.cpp:				BYTE * pZone = (BYTE*) m_pTokenizer->GetBufferPtr();
+sphinx.cpp:				m_pTokenizer->SetBufferPtr ( (const char*) pEnd+1 );
+sphinx.cpp:			m_tState.m_iBuildLastStep = m_pTokenizer->TokenIsBlended() ? 0 : 1;
+sphinx.cpp:			const BYTE* tbuf_ptr = m_pTokenizer->GetThesaurus(sWord, iBytes);
+sphinx.cpp:						//m_tState.m_iBuildLastStep = m_pTokenizer->TokenIsBlended() ? 0 : 1;
+sphinx.cpp:			m_pTokenizer->SetBuffer ( sField, iFieldBytes );
+sphinx.cpp:		m_pTokenizer->SetBuffer ( (BYTE*)sTitle, iLen );
+sphinx.cpp:		while ( ( sWord = m_pTokenizer->GetToken() )!=NULL && m_tHits.Length()<MAX_SOURCE_HITS )
+sphinx.cpp:	m_pTokenizer->SetBuffer ( m_pBuffer, p-m_pBuffer );
+sphinx.cpp:	while ( ( sWord = m_pTokenizer->GetToken () )!=NULL && m_tHits.Length()<MAX_SOURCE_HITS )
+sphinx.cpp:	if ( m_tHits.Length()>=MAX_SOURCE_HITS && m_pTokenizer->GetTokenEnd()!=m_pTokenizer->GetBufferEnd() )
+sphinxexcerpt.cpp:			m_pTokenizer->SetBuffer ( (BYTE *) &m_sBuffer->cstr() [ tToken.m_iStart ], tToken.m_iLengthBytes );
+sphinxexcerpt.cpp:			BYTE * sToken = m_pTokenizer->GetToken(); // OPTIMIZE? token can be memoized and shared between qwords
+sphinxexcerpt.cpp:		m_pTokenizer->SetBuffer ( sTmp, iLen );
+sphinxexcerpt.cpp:		while ( m_pTokenizer->GetToken()!=NULL )
+sphinxexcerpt.cpp:			if ( m_pTokenizer->TokenIsBlended() )
+sphinxexcerpt.cpp:				m_pTokenizer->SkipBlended();
+sphinxexcerpt.cpp:	const int iLength = m_pTokenizer->IsUtf8() ? sphUTF8Len ( sWord ) : strlen ( sWord );
+sphinxexcerpt.cpp:		m_pTokenizer->SetBuffer ( (BYTE*)sDoc, m_iDocLen );
+sphinxexcerpt.cpp:		m_pDoc = m_pTokenizer->GetBufferPtr();
+sphinxexcerpt.cpp:		assert ( iStart>=0 && m_pDoc+iStart+iLen<=m_pTokenizer->GetBufferEnd() );
+sphinxexcerpt.cpp:		assert ( iStart>=0 && m_pDoc+iStart+iLen<=m_pTokenizer->GetBufferEnd() );
+sphinxexcerpt.cpp:		assert ( iStart>=0 && m_pDoc+iStart+iLen<=m_pTokenizer->GetBufferEnd() );
+sphinxexcerpt.cpp:		assert ( iStart>=0 && m_pDoc+iStart+iLen<=m_pTokenizer->GetBufferEnd() );
+sphinxexcerpt.cpp:		assert ( iStart>=0 && m_pDoc+iStart+iLen<=m_pTokenizer->GetBufferEnd() );
+sphinxquery.cpp:	const char * pPtr = m_pTokenizer->GetBufferPtr ();
+sphinxquery.cpp:	const char * pLastPtr = m_pTokenizer->GetBufferEnd ();
+sphinxquery.cpp:		m_pTokenizer->SetBufferPtr ( pPtr+1 );
+sphinxquery.cpp:		m_pTokenizer->SetBufferPtr ( pPtr ); // ignore and re-parse (FIXME! maybe warn?)
+sphinxquery.cpp:		m_pTokenizer->SetBufferPtr ( pPtr );
+sphinxquery.cpp:				m_pTokenizer->SetBufferPtr ( ++pPtr );
+sphinxquery.cpp:		m_pTokenizer->SetBufferPtr ( p+1 );
+sphinxquery.cpp:		m_pTokenizer->SetBufferPtr ( p );
+sphinxquery.cpp:				m_pTokenizer->SetBufferPtr ( p+1 );
+sphinxquery.cpp:			m_iAtomPos += m_pTokenizer->SkipBlended();
+sphinxquery.cpp:		m_pLastTokenStart = m_pTokenizer->GetBufferPtr ();
+sphinxquery.cpp:		const char * sEnd = m_pTokenizer->GetBufferEnd ();
+sphinxquery.cpp:			if ( m_pTokenizer->GetToken() && m_pTokenizer->TokenIsBlended() ) // number with blended should be tokenized as usual
+sphinxquery.cpp:				m_pTokenizer->SkipBlended();
+sphinxquery.cpp:				m_pTokenizer->SetBufferPtr ( m_pLastTokenStart );
+sphinxquery.cpp:				m_pTokenizer->SetBuffer ( (BYTE*)sNumberBuf, iNumberLen );
+sphinxquery.cpp:				sToken = (const char*) m_pTokenizer->GetToken();
+sphinxquery.cpp:				m_pTokenizer->SetBuffer ( m_sQuery, m_iQueryLen );
+sphinxquery.cpp:				m_pTokenizer->SetBufferPtr ( p );
+sphinxquery.cpp:		sToken = (const char *) m_pTokenizer->GetToken ();
+sphinxquery.cpp:			m_iPendingNulls = m_pTokenizer->GetOvershortCount ();
+sphinxquery.cpp:		m_bWasBlended = m_pTokenizer->TokenIsBlended();
+sphinxquery.cpp:		m_iPendingNulls = m_pTokenizer->GetOvershortCount ();
+sphinxquery.cpp:		if ( sToken && p && !m_pTokenizer->m_bPhrase && strncmp ( p, "NEAR/", 5 )==0 && isdigit(p[5]) )
+sphinxquery.cpp:			m_pTokenizer->SetBufferPtr ( p );
+sphinxquery.cpp:		if ( sToken && p && !m_pTokenizer->m_bPhrase && !strcasecmp ( sToken, "sentence" ) && !strncmp ( p, "SENTENCE", 8 ) )
+sphinxquery.cpp:		if ( sToken && p && !m_pTokenizer->m_bPhrase && !strcasecmp ( sToken, "paragraph" ) && !strncmp ( p, "PARAGRAPH", 9 ) )
+sphinxquery.cpp:		if ( sToken && p && !m_pTokenizer->m_bPhrase && !strncmp ( p, "ZONE:", 5 )
+sphinxquery.cpp:		if ( m_pTokenizer->WasTokenSpecial() )
+sphinxquery.cpp:				if ( *m_pTokenizer->GetBufferPtr()=='<' )
+sphinxquery.cpp:				m_pTokenizer->m_bPhrase = m_bQuoted;
+sphinxquery.cpp:		uStarPosition |= *m_pTokenizer->GetTokenEnd()=='*' ? STAR_BACK : 0;
+sphinxquery.cpp:		uStarPosition |= ( m_pTokenizer->GetTokenStart()!=m_pTokenizer->GetBufferPtr() ) &&
+sphinxquery.cpp:			m_pTokenizer->GetTokenStart()[-1]=='*' ? STAR_FRONT : 0;
+sphinxquery.cpp:		if ( m_pTokenizer->TokenIsBlended() )
+sphinxquery.cpp:	m_pTokenizer->SetBuffer ( m_sQuery, m_iQueryLen );
+sphinxrt.cpp:	CSphScopedPtr<ISphTokenizer> pTokenizer ( m_pTokenizer->Clone ( false ) ); // avoid race
+sphinxrt.cpp:	const CSphTokenizerSettings & tSettings = m_pTokenizer->GetSettings ();
+sphinxrt.cpp:	WriteFileInfo ( tWriter, m_pTokenizer->GetSynFileInfo () );
+sphinxrt.cpp:	CSphScopedPtr<ISphTokenizer> pTokenizer ( m_pTokenizer->Clone ( false ) );
+sphinxrt.cpp:	CSphScopedPtr<ISphTokenizer> pTokenizer ( m_pTokenizer->Clone ( false ) ); // avoid race
