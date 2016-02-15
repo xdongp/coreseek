@@ -432,6 +432,6 @@ int dict_load(dict * d,  char * path)
     if (line)
         free(line);
     if (fp)
-        fclose()	
+        fclose();
     return 0;
 }
