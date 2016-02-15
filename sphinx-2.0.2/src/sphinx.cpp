@@ -1894,6 +1894,7 @@ inline int sphUTF8Encode ( BYTE * pBuf, int iCode ); // forward ref for GCC
 
 #if USE_MMSEG
 
+dict * g_pQueryDict = NULL;
 /// create UTF-8 tokenizer with Chinese Segment support
 ISphTokenizer *			sphCreateUTF8ChineseTokenizer ( const char* dict_path );
 
@@ -2226,9 +2227,12 @@ ISphTokenizer *	sphCreateUTF8ChineseTokenizer ( const char* dict_path )
 	char path[512];
 	CSphTokenizer_UTF8MMSeg* tokenizer = new CSphTokenizer_UTF8MMSeg ();
 	tokenizer->setDictPath(dict_path);
-	tokenizer->m_pQueryDict = dict_new();
-	sprintf(path, "%sunigram.txt", dict_path);
-	dict_load(tokenizer->m_pQueryDict, path);
+        if(!g_pQueryDict){
+	    g_pQueryDict = dict_new();
+	    sprintf(path, "%sunigram.txt", dict_path);
+	    dict_load(g_pQueryDict, path);
+	    tokenizer->m_pQueryDict = g_pQueryDict;
+	}
 	return tokenizer;
 }
 

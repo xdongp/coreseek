@@ -615,13 +615,14 @@ protected:
 	bool							m_bQueryMode;				///< is this indexing time or searching time?
 	bool							m_bDetectSentences;			///< should we detect sentence boundaries?
 
-	CSphTokenizerSettings			m_tSettings;				///< tokenizer settings
-	CSphSavedFile					m_tSynFileInfo;				///< synonyms file info
+	CSphTokenizerSettings					m_tSettings;				///< tokenizer settings
+	CSphSavedFile						m_tSynFileInfo;				///< synonyms file info
 
 public:
 	bool							m_bPhrase;
-	dict *                          m_pQueryDict;
+	dict *                          			m_pQueryDict;
 };
+
 
 /// parse charset table
 bool					sphParseCharset ( const char * sCharset, CSphVector<CSphRemapRange> & dRemaps );

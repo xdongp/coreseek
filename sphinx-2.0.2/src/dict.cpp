@@ -429,7 +429,9 @@ int dict_load(dict * d,  char * path)
         }
     }
 
-    if(line)
+    if (line)
         free(line);
+    if (fp)
+        fclose()	
     return 0;
 }
