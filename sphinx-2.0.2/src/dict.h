@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 /** Keypair: holds a key/value pair. Key must be a hashable C string */
 typedef struct _keypair_ {
     char    * key ;
@@ -49,6 +48,9 @@ void dict_dump(dict * d, FILE * out);
 
 // Load dict from file
 int dict_load(dict * d,  char * path);
+
+// Get Single Dict
+dict* dict_get_single(char * path);
 
 #ifdef __cplusplus
 }  /* end extern "C" */

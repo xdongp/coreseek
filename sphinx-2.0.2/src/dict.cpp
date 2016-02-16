@@ -13,6 +13,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
+
 
 #include "dict.h"
 
@@ -43,6 +45,10 @@
  */
 #define dict_hash   dict_hash_murmur
 /* #define dict_hash   dict_hash_dobbs */
+
+static dict *singleton = NULL;
+
+static pthread_mutex_t singleton_lock=PTHREAD_MUTEX_INITIALIZER;
 
 /* Forward definitions */
 static int dict_resize(dict * d);
@@ -434,4 +440,21 @@ int dict_load(dict * d,  char * path)
     if (fp)
         fclose(fp);
     return 0;
+}
+
+
+dict* dict_get_single(char * path){
+    pthread_mutex_lock(&singleton_lock);
+    if (NULL == singleton){
+        singleton = dict_new();
+        if (NULL == singleton)
+        {
+            pthread_mutex_unlock(&singleton_lock);
+            return NULL;
+        }
+        /*  Init Dict */
+	dict_load(singleton, path);
+    }
+    pthread_mutex_unlock(&singleton_lock);
+    return  singleton;
 }
